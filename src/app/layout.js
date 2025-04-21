@@ -11,7 +11,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://blockbuilders.xyz';
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://blockbuilde.rs";
 
 export const metadata = {
   title: "BlockBuilders - The genesis edition",
