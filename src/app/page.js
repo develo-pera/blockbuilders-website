@@ -1,11 +1,25 @@
+"use client";
+
 import Image from "next/image";
 import "./animations.css";
 
 export default function Home() {
+  // Calculate number of squares needed based on viewport size
+  const calculateSquares = () => {
+    if (typeof window === 'undefined') return; // Default for SSR
+
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+    const squareSize = 40;
+    const cols = Math.ceil(width / squareSize);
+    const rows = Math.ceil(height / squareSize);
+    return cols * rows;
+  };
+
   return (
     <div className="h-screen w-screen bg-black p-0 m-0 relative overflow-hidden">
       <div className="grid grid-cols-[repeat(auto-fill,minmax(40px,1fr))] grid-rows-[repeat(auto-fill,minmax(40px,1fr))] h-full w-full">
-        {Array.from({ length: 1000 }).map((_, index) => (
+        {Array.from({ length: calculateSquares() }).map((_, index) => (
           <div
             key={index}
             className="square w-[40px] h-[40px] bg-black"
