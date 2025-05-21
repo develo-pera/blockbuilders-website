@@ -16,6 +16,10 @@ export default function Home() {
     return cols * rows;
   };
 
+  const typeformUrl =
+    process.env.NEXT_PUBLIC_TYPEFORM_URL ||
+    'https://form.typeform.com/to/i3SUry9z';
+
   return (
     <div className="h-screen w-screen bg-black p-0 m-0 relative overflow-hidden">
       <div className="grid grid-cols-[repeat(auto-fill,minmax(40px,1fr))] grid-rows-[repeat(auto-fill,minmax(40px,1fr))] h-full w-full">
@@ -26,14 +30,20 @@ export default function Home() {
           />
         ))}
       </div>
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+      <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none space-y-8">
         <Image
           src="/BlockBuilders-logo.svg"
           alt="BlockBuilders Logo"
           width={400}
           height={400}
-          className="w-auto h-auto max-w-[600px] h-full"
+          className="w-auto h-auto max-w-[600px]"
         />
+        <button
+          className="pointer-events-auto px-6 py-3 border-2 border-white text-white text-lg font-medium rounded hover:bg-white hover:text-black transition"
+          onClick={() => window.open(typeformUrl, '_blank')}
+        >
+          I am interested
+        </button>
       </div>
     </div>
   );
