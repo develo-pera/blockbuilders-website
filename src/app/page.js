@@ -1,7 +1,12 @@
 "use client";
 
 import Image from "next/image";
+import { Space_Grotesk } from "next/font/google";
 import "./animations.css";
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"]
+});
 
 export default function Home() {
   // Calculate number of squares needed based on viewport size
@@ -39,10 +44,10 @@ export default function Home() {
           className="w-auto h-auto max-w-[600px]"
         />
         <button
-          className="pointer-events-auto px-6 py-3 border-2 border-white text-white text-lg font-medium rounded hover:bg-white hover:text-black transition"
+          className={`${spaceGrotesk.className} cursor-pointer pointer-events-auto px-6 py-3 rounded font-bold bg-[#a1d078] text-black transition duration-200 hover:opacity-80 active:scale-95`}
           onClick={() => window.open(typeformUrl, '_blank')}
         >
-          I am interested
+          Join the Waitlist
         </button>
       </div>
     </div>
